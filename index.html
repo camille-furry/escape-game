@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accès sécurisé</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 100px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #444;
+      background: #222;
+      color: #eee;
+      border-radius: 5px;
+      outline: none;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: #444;
+      color: #eee;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    button:hover {
+      background-color: #666;
+    }
+    #content {
+      display: none;
+      margin-top: 30px;
+      font-size: 20px;
+      color: #00ff88;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h2>🔐 Entrez le mot de passe pour continuer :</h2>
+  <input type="password" id="password" placeholder="Mot de passe">
+  <button onclick="checkPassword()">Valider</button>
+
+  <div id="content">
+    <h3>✅ Accès autorisé !</h3>
+    <p>Le code secret suivant est : <strong>OMEGA-42</strong></p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("password").value.trim();
+      if (password === "1234") {
+        document.getElementById("content").style.display = "block";
+      } else {
+        alert("⛔ Mauvais mot de passe !");
+      }
+    }
+  </script>
+</body>
+</html>
